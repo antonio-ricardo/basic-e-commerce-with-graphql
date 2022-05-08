@@ -1,0 +1,10 @@
+type Product {
+  id: ID!
+  name: String!
+  tag: String!
+  value: Int!
+}
+
+type Mutation {
+  createProduct (name: String!, tag: String!, value: Int!): Product!
+}
