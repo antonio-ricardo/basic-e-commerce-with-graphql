@@ -5,6 +5,12 @@ type Product {
   value: Int!
 }
 
+type hasDeleted {
+  hasDeleted: Boolean!
+}
+
 type Mutation {
   createProduct (name: String!, tag: String!, value: Int!): Product!
+  updateProduct (id: String!, name: String, tag: String, value: String): Product!
+  deleteProduct (id: String!): hasDeleted!
 }
