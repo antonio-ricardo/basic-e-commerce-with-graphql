@@ -1,8 +1,11 @@
+import { injectable } from "inversify";
 import { validateProductTag } from "../../helpers/validateProductTag";
-import { ProductModel } from "../../models";
+import { ProductContracts, ProductModel } from "../../models";
 import ProductDb from "../../mongoose/products"
 
-export const createProductUseCase = async (infos: ProductModel.Product): Promise<ProductModel.ProductWithId> => {
+@injectable()
+export class CreateProductUseCase implements ProductContracts.CreateProduct {
+  async execute (infos: ProductModel.Product): Promise<ProductModel.ProductWithId> {
     const isValidTag = validateProductTag(infos.tag)
 
     if (!isValidTag) {
@@ -11,8 +14,6 @@ export const createProductUseCase = async (infos: ProductModel.Product): Promise
 
     const productAlreadyExists: ProductModel.ProductWithId[] = await ProductDb.find({name: infos.name})
 
-    console.log(productAlreadyExists)
-
     if (productAlreadyExists && productAlreadyExists.length < 0) {
         throw new Error ('Already exists a product with this name')
     }
@@ -20,4 +21,5 @@ export const createProductUseCase = async (infos: ProductModel.Product): Promise
     const product : Promise<ProductModel.ProductWithId> = await ProductDb.create(infos)
 
     return product
+  }
 }

@@ -1,7 +1,3 @@
-import { StartServer } from './startServer';
-import resolvers from "./resolvers";
-import typeDefs from "./typeDefs";
+import { StartServer } from './app/startServer';
 
-console.log('Chegou')
-
-StartServer(typeDefs, resolvers);
+StartServer();

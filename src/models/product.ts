@@ -38,4 +38,8 @@ export namespace ProductContracts {
       hasDeleted: boolean;
     }
   }
+
+  export interface CreateProduct {
+    execute(input: ProductModel.Product): Promise<ProductModel.ProductWithId>
+  }
 }
