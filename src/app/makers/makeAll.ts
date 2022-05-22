@@ -1,9 +1,6 @@
 import { MakeUsecase } from './makeUsecase';
-import { MakeSchema } from './makeSchema';
 import { makeResolvers } from './makeResolvers';
 import { Container } from 'inversify';
-
-
 
 
 export const makeAll = (container: Container) => {

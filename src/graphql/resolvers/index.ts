@@ -1,1 +1,3 @@
-export * from './products/create.resolver'
+export * from "./products/create";
+export * from "./products/delete";
+export * from "./products/update";

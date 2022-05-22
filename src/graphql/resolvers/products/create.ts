@@ -1,6 +1,6 @@
 import { inject, injectable } from "inversify";
 import { Args, Query, Resolver } from "type-graphql";
-import { usecasesSymbols } from "../../../app/symbols";
+import { usecasesSymbols } from "../../../app/symbols/usecases";
 import { ProductContracts } from "../../../models";
 import { InputCreateProduct } from "../../models/products/contracts";
 import { ProductWithId } from "../../models/products/model";

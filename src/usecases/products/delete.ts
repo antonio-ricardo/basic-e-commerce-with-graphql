@@ -1,10 +1,14 @@
+import { injectable } from "inversify";
 import { ProductContracts } from "../../models";
 import ProductDb from "../../mongoose/products";
 
-export const deleteProductUsecase = async (
-  input: ProductContracts.Inputs.DeleteProduct
-) => {
-  const data = await ProductDb.deleteOne({ _id: input.id });
+@injectable()
+export class DeleteProductUsecase implements ProductContracts.DeleteProduct {
+  async execute(
+    input: ProductContracts.Inputs.DeleteProduct
+  ): Promise<ProductContracts.Outputs.DeleteProduct> {
+    const data = await ProductDb.deleteOne({ _id: input.id });
 
-  return { hasDeleted: data.deletedCount > 0 };
-};
+    return { hasDeleted: data.deletedCount > 0 };
+  }
+}

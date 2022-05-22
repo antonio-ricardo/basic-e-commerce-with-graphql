@@ -3,6 +3,7 @@
     "@graphql-tools/load-files": "^6.5.3",
     "apollo-server": "^3.7.0",
     "class-validator": "^0.13.2",
+    "dotenv": "^16.0.1",
     "graphql": "^15.3.0",
     "graphql-tools": "^8.2.8",
     "inversify": "^6.0.1",
@@ -16,6 +17,6 @@
     "typescript": "^4.6.4"
   },
   "scripts": {
-    "dev": "nodemon --exec ts-node src/index.ts"
+    "dev": "nodemon --exec ts-node src/index.ts -e ts"
   }
 }

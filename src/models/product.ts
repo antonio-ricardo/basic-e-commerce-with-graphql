@@ -42,4 +42,12 @@ export namespace ProductContracts {
   export interface CreateProduct {
     execute(input: ProductModel.Product): Promise<ProductModel.ProductWithId>
   }
+
+  export interface UpdateProduct {
+    execute(input: Inputs.UpdateProduct): Promise<ProductModel.ProductWithId>
+  }
+
+  export interface DeleteProduct {
+    execute(input: Inputs.DeleteProduct): Promise<Outputs.DeleteProduct>
+  }
 }
