@@ -1,3 +1,5 @@
+import { validateProductTag } from "./../../helpers/validateProductTag";
+import { NotFoundError } from "./../../errors/notFound";
 import { injectable } from "inversify";
 import { ProductContracts, ProductModel } from "../../models";
 import ProductDb from "../../mongoose/products";
@@ -7,6 +9,10 @@ export class UpdateProductUsecase implements ProductContracts.UpdateProduct {
   async execute(
     input: ProductContracts.Inputs.UpdateProduct
   ): Promise<ProductModel.ProductWithId> {
+    if (input.tag) {
+      validateProductTag(input.tag);
+    }
+
     const updatedProduct: ProductModel.ProductWithId | null =
       await ProductDb.findOneAndUpdate(
         { _id: input.id },
@@ -15,7 +21,7 @@ export class UpdateProductUsecase implements ProductContracts.UpdateProduct {
       );
 
     if (!updatedProduct) {
-      throw new Error("Not find any products with sent id");
+      throw new NotFoundError("Not found any products with sent id");
     }
 
     return updatedProduct;

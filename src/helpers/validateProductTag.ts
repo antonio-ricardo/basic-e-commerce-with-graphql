@@ -1,5 +1,13 @@
+import { ClientBadRequest } from "../errors";
+
 export const validateProductTag = (tag: string) => {
   const validTags: string[] = ["CLOTHES", "TOYS", "FOOD", "OTHERS"];
 
-  return validTags.includes(tag);
+  const isInvalidTag = !validTags.includes(tag)
+
+  if (isInvalidTag) {
+    throw new ClientBadRequest("Invalid tag sent");
+  }
+
+  return tag;
 };

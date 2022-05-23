@@ -5,14 +5,15 @@ import mongoose from "mongoose";
 import { Container } from "inversify";
 import { MakeSchema } from "./makers/makeSchema";
 import { makeAll } from "./makers/makeAll";
+import { GraphqlErrorHandler } from "../helpers/errorHandler";
 
 export const StartServer = async () => {
   let container = makeAll(new Container());
 
-  mongoose.connect("mongodb://localhost/toinProject");
+  mongoose.connect(process.env.MONGO_DB_URL || "mongodb://localhost");
 
   const schema = await MakeSchema(container);
 
-  const server = new ApolloServer({ schema });
+  const server = new ApolloServer({ schema, formatError: (error) => GraphqlErrorHandler(error) });
   server.listen(process.env.PORT).then(({ url }) => console.log(`Server is running in ${url}`));
 };
