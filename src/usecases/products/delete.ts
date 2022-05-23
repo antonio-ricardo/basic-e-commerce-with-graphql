@@ -5,7 +5,7 @@ import ProductDb from "../../mongoose/products";
 @injectable()
 export class DeleteProductUsecase implements ProductContracts.DeleteProduct {
   async execute(
-    input: ProductContracts.Inputs.DeleteProduct
+    input: ProductContracts.Inputs.Base
   ): Promise<ProductContracts.Outputs.DeleteProduct> {
     const data = await ProductDb.deleteOne({ _id: input.id });
 
