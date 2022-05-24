@@ -1,5 +1,5 @@
 import { getProductUsecaseStub } from "../../stubs";
-import { GetProductResolver } from "./../../../src/graphql/resolvers/products/get";
+import { GetProductResolver } from "./../../../src/graphql/resolvers";
 
 const makeSut = () => {
   const sut = new GetProductResolver(getProductUsecaseStub);
