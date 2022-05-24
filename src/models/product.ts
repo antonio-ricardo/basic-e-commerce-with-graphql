@@ -2,7 +2,7 @@ export enum TagType {
   clothes = "CLOTHES",
   toys = "TOYS",
   food = "FOOD",
-  other = "OTHERS",
+  other = "OTHER",
 }
 
 export namespace ProductModel {
