@@ -1,5 +1,5 @@
-import { TagType } from "./../models/product";
-import { ClientBadRequest } from "../errors";
+import { TagType } from './../models/product'
+import { ClientBadRequest } from '../errors'
 
 export const validateProductTag = (tag: string) => {
   const validTags: string[] = Object.values(TagType)
@@ -7,7 +7,7 @@ export const validateProductTag = (tag: string) => {
   const isInvalidTag = !validTags.includes(tag)
 
   if (isInvalidTag) {
-    throw new ClientBadRequest("Invalid tag sent")
+    throw new ClientBadRequest('Invalid tag sent')
   }
 
   return tag

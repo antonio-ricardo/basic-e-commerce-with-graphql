@@ -42,8 +42,8 @@
   },
   "lint-staged": {
     "*.ts": [
+      "prettier -w",
       "eslint --fix",
-      "git add",
       "npm run test"
     ]
   }
