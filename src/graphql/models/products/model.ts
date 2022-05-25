@@ -1,18 +1,17 @@
-import { Field, ObjectType } from "type-graphql"
-import { TagType } from "../../../models"
-
+import { Field, ObjectType } from 'type-graphql'
+import { TagType } from '../../../models'
 
 @ObjectType()
 export class ProductWithId {
-    @Field()
+  @Field()
     id: string
 
-    @Field()
+  @Field()
     name: string
 
-    @Field()
+  @Field()
     tag: TagType
 
-    @Field()
+  @Field()
     value: number
 }

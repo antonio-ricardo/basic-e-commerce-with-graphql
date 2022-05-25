@@ -1,3 +1,3 @@
-import { StartServer } from './app/startServer';
+import { StartServer } from './app/startServer'
 
-StartServer();
+StartServer()

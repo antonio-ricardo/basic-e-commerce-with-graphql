@@ -1,34 +1,34 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
-const Schema = mongoose.Schema;
-const ObjectId = Schema.Types.ObjectId;
+const Schema = mongoose.Schema
+const ObjectId = Schema.Types.ObjectId
 
 const userSchema = new Schema({
   buyer: {
     type: String,
-    required: true,
+    required: true
   },
   products: [
     {
       productId: {
         type: ObjectId,
         required: true,
-        ref: "Products",
+        ref: 'Products'
       },
       quantity: {
         type: Number,
-        required: true,
+        required: true
       },
       value: {
         type: Number,
-        required: true,
-      },
-    },
+        required: true
+      }
+    }
   ],
   total: {
     type: Number,
-    required: true,
-  },
-});
+    required: true
+  }
+})
 
-module.exports = mongoose.model("Orders", userSchema);
+module.exports = mongoose.model('Orders', userSchema)

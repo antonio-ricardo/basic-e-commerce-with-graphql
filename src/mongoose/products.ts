@@ -1,21 +1,21 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 const postSchema = new Schema({
   name: {
     type: String,
-    required: true,
+    required: true
   },
   tag: {
     type: String,
-    enum: ["CLOTHES", "TOYS", "FOOD", "OTHERS"],
-    required: true,
+    enum: ['CLOTHES', 'TOYS', 'FOOD', 'OTHERS'],
+    required: true
   },
   value: {
     type: Number,
-    required: true,
-  },
-});
+    required: true
+  }
+})
 
-export default mongoose.model("Products", postSchema);
+export default mongoose.model('Products', postSchema)

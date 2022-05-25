@@ -1,8 +1,8 @@
 export enum TagType {
-  clothes = "CLOTHES",
-  toys = "TOYS",
-  food = "FOOD",
-  other = "OTHER",
+  clothes = 'CLOTHES',
+  toys = 'TOYS',
+  food = 'FOOD',
+  other = 'OTHER',
 }
 
 export namespace ProductModel {

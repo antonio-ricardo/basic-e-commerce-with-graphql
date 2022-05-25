@@ -1,35 +1,35 @@
-import { ArgsType, Field, ObjectType } from "type-graphql";
-import { TagType } from "../../../models";
+import { ArgsType, Field, ObjectType } from 'type-graphql'
+import { TagType } from '../../../models'
 
 @ArgsType()
 export class InputCreateProduct {
   @Field()
-  name: string;
+    name: string
 
   @Field()
-  tag: TagType;
+    tag: TagType
 
   @Field()
-  value: number;
+    value: number
 }
 
 @ArgsType()
 export class InputUpdateProduct {
   @Field()
-  id: string;
+    id: string
 
   @Field({ nullable: true })
-  name?: string;
+    name?: string
 
   @Field({ nullable: true })
-  tag?: TagType;
+    tag?: TagType
 
   @Field({ nullable: true })
-  value?: number;
+    value?: number
 }
 
 @ObjectType()
 export class OutputDeleteProduct {
-    @Field()
-    hasDeleted: boolean;
+  @Field()
+    hasDeleted: boolean
 }
