@@ -1,3 +1,5 @@
 node_modules
 schema.gql
 coverage
+dist
+.env
