@@ -11,7 +11,7 @@ const makeSut = () => {
   }
 }
 
-describe('Create product tests', () => {
+describe('Create product resolver tests', () => {
   const { sut, createProductUsecaseStub } = makeSut()
 
   const input = {

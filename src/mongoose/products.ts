@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const postSchema = new Schema({
+export const productSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -18,4 +18,4 @@ const postSchema = new Schema({
   }
 })
 
-export default mongoose.model('Products', postSchema)
+export default mongoose.model('Products', productSchema)

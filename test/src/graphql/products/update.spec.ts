@@ -11,7 +11,7 @@ const makeSut = () => {
   }
 }
 
-describe('Update product tests', () => {
+describe('Update product resolver tests', () => {
   const { sut, updateProductUsecaseStub } = makeSut()
 
   const input = {

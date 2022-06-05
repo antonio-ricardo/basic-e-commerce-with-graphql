@@ -10,7 +10,7 @@ const makeSut = () => {
   }
 }
 
-describe('Get product tests', () => {
+describe('Get product resolver tests', () => {
   const { sut, getProductUsecaseStub } = makeSut()
 
   it('Should call getProductUsecase with id', async () => {

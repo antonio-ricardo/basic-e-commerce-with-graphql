@@ -10,7 +10,7 @@ const makeSut = () => {
   }
 }
 
-describe('Delete product tests', () => {
+describe('Delete product resolver tests', () => {
   const { sut, deleteProductUsecaseStub } = makeSut()
 
   it('Should call deleteProductUsecase with id', async () => {
