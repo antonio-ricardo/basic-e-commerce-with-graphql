@@ -14,8 +14,8 @@ export class CreateProductUseCase implements ProductContracts.CreateProduct {
     const productAlreadyExists: ProductModel.ProductWithId[] =
       await ProductDb.find({ name: infos.name })
 
-    if (productAlreadyExists && productAlreadyExists.length < 0) {
-      throw new ClientBadRequest('Already exists a product with this name')
+    if (productAlreadyExists && productAlreadyExists.length > 0) {
+      throw new ClientBadRequest('Already exists a product with sent name')
     }
 
     const product: Promise<ProductModel.ProductWithId> = await ProductDb.create(

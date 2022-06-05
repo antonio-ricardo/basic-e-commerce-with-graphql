@@ -9,7 +9,7 @@ export const productSchema = new Schema({
   },
   tag: {
     type: String,
-    enum: ['CLOTHES', 'TOYS', 'FOOD', 'OTHERS'],
+    enum: ['CLOTHES', 'TOYS', 'FOOD', 'OTHER'],
     required: true
   },
   value: {
