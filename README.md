@@ -13,4 +13,4 @@ e o que mais der na telha de aprender
 - jest (ts-jest)
 - eslint
 - prettier
-- mongodb-memory-server (gerar uri pros testes que utilizam o mongo)
+- mongodb-memory-server (gerar bancos em memoria independentes para usar em cada teste)
