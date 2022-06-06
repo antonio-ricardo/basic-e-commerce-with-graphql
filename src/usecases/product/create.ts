@@ -19,7 +19,7 @@ export class CreateProductUseCase implements ProductContracts.CreateProduct {
     }
 
     const product: Promise<ProductModel.ProductWithId> = await ProductDb.create(
-      infos
+      { ...infos, createdAt: new Date(), updatedAt: new Date() }
     )
 
     return product

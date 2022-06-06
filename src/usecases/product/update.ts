@@ -16,7 +16,7 @@ export class UpdateProductUsecase implements ProductContracts.UpdateProduct {
     const updatedProduct: ProductModel.ProductWithId | null =
       await ProductDb.findOneAndUpdate(
         { _id: input.id },
-        { ...input },
+        { ...input, updatedAt: new Date() },
         { new: true }
       )
 

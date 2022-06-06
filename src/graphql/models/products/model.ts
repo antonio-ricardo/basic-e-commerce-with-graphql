@@ -14,4 +14,10 @@ export class ProductWithId {
 
   @Field()
     value: number
+
+  @Field()
+    createdAt: Date
+
+  @Field()
+    updatedAt: Date
 }
