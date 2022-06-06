@@ -4,7 +4,8 @@ import {
   CreateProductResolver,
   DeleteProductResolver,
   GetProductResolver,
-  UpdateProductResolver
+  UpdateProductResolver,
+  CreateOrderResolver
 } from '../../graphql/resolvers'
 
 export const MakeSchema = async (container: Container) => {
@@ -13,7 +14,8 @@ export const MakeSchema = async (container: Container) => {
       GetProductResolver,
       CreateProductResolver,
       DeleteProductResolver,
-      UpdateProductResolver
+      UpdateProductResolver,
+      CreateOrderResolver
     ],
     emitSchemaFile: true,
     container

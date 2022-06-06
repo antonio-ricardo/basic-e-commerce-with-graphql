@@ -42,7 +42,11 @@ describe('Create product usecase tests', () => {
   })
 
   it('Should throw if already exists a product with sent name', async () => {
-    await productDb.create(makeProduct())
+    await productDb.create({
+      ...makeProduct(),
+      createdAt: new Date(),
+      updatedAt: new Date()
+    })
 
     const promise = sut.execute(makeProduct())
 

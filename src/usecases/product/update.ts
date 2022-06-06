@@ -8,12 +8,16 @@ import ProductDb from '../../mongoose/products'
 export class UpdateProductUsecase implements ProductContracts.UpdateProduct {
   async execute (
     input: ProductContracts.Inputs.UpdateProduct
-  ): Promise<ProductModel.ProductWithId> {
+  ): Promise<ProductModel.ProductCreated> {
     if (input.tag) {
       validateProductTag(input.tag)
     }
 
-    const updatedProduct: ProductModel.ProductWithId | null =
+    if (input.value) {
+      input.value = Number(input.value.toFixed(2))
+    }
+
+    const updatedProduct: ProductModel.ProductCreated | null =
       await ProductDb.findOneAndUpdate(
         { _id: input.id },
         { ...input, updatedAt: new Date() },

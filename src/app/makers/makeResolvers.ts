@@ -3,7 +3,8 @@ import {
   CreateProductResolver,
   DeleteProductResolver,
   GetProductResolver,
-  UpdateProductResolver
+  UpdateProductResolver,
+  CreateOrderResolver
 } from '../../graphql/resolvers'
 
 export const makeResolvers = (container: Container) => {
@@ -11,4 +12,6 @@ export const makeResolvers = (container: Container) => {
   container.bind(UpdateProductResolver).toSelf().inSingletonScope()
   container.bind(DeleteProductResolver).toSelf().inSingletonScope()
   container.bind(GetProductResolver).toSelf().inSingletonScope()
+
+  container.bind(CreateOrderResolver).toSelf().inSingletonScope()
 }

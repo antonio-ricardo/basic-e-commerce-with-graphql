@@ -1,20 +1,19 @@
 import { inject, injectable } from 'inversify'
-import { Args, Mutation, Resolver } from 'type-graphql'
+import { Arg, Mutation, Resolver } from 'type-graphql'
 import { usecasesSymbols } from '../../../app/symbols/usecases'
 import { ProductContracts } from '../../../models'
-import { InputUpdateProduct } from '../../models/products/contracts'
-import { ProductWithId } from '../../models/products/model'
+import { InputUpdateProduct, ProductCreated } from '../../models'
 
 @injectable()
 @Resolver()
 export class UpdateProductResolver {
   constructor (
-    @inject(usecasesSymbols.updateProduct)
+    @inject(usecasesSymbols.product.updateProduct)
     private readonly updateProductUsecase: ProductContracts.UpdateProduct
   ) {}
 
-  @Mutation(() => ProductWithId)
-  async UpdateProduct (@Args() input: InputUpdateProduct) {
+  @Mutation(() => ProductCreated)
+  async UpdateProduct (@Arg('input') input: InputUpdateProduct) {
     return await this.updateProductUsecase.execute(input)
   }
 }

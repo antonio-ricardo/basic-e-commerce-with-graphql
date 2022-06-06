@@ -6,7 +6,9 @@ export const makeProduct = (): ProductModel.Product => ({
   value: 0
 })
 
-export const makeProductWithId = (): ProductModel.ProductWithId => ({
+export const makeProductWithId = (): ProductModel.ProductCreated => ({
   id: 'valid_id',
+  createdAt: new Date(),
+  updatedAt: new Date(),
   ...makeProduct()
 })

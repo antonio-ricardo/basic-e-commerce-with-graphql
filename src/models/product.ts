@@ -12,8 +12,14 @@ export namespace ProductModel {
     value: number;
   }
 
-  export interface ProductWithId extends Product {
+  export interface ProductCreated extends Product {
+    createdAt: Date;
+    updatedAt: Date;
     id: string;
+  }
+
+  export interface ProductForOrder extends ProductCreated {
+    quantity: number;
   }
 }
 
@@ -37,15 +43,15 @@ export namespace ProductContracts {
   }
 
   export interface GetProduct {
-    execute(id: string): Promise<ProductModel.ProductWithId>;
+    execute(id: string): Promise<ProductModel.ProductCreated>;
   }
 
   export interface CreateProduct {
-    execute(input: ProductModel.Product): Promise<ProductModel.ProductWithId>;
+    execute(input: ProductModel.Product): Promise<ProductModel.ProductCreated>;
   }
 
   export interface UpdateProduct {
-    execute(input: Inputs.UpdateProduct): Promise<ProductModel.ProductWithId>;
+    execute(input: Inputs.UpdateProduct): Promise<ProductModel.ProductCreated>;
   }
 
   export interface DeleteProduct {

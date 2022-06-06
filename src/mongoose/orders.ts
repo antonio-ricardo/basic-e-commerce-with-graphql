@@ -1,22 +1,37 @@
 import mongoose from 'mongoose'
+import { TagType } from '../models'
 
 const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 
-const userSchema = new Schema({
+const orderSchema = new Schema({
   buyer: {
+    type: ObjectId,
+    required: true,
+    ref: 'Users'
+  },
+  status: {
     type: String,
-    required: true
+    enum: ['CREATED', 'REQUESTED']
   },
   products: [
     {
-      productId: {
+      id: {
         type: ObjectId,
         required: true,
         ref: 'Products'
       },
+      name: {
+        type: String,
+        required: true
+      },
       quantity: {
         type: Number,
+        required: true
+      },
+      tag: {
+        type: String,
+        enum: TagType,
         required: true
       },
       value: {
@@ -47,4 +62,4 @@ const userSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('Orders', userSchema)
+export default mongoose.model('Orders', orderSchema)

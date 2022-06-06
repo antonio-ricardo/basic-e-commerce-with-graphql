@@ -1,5 +1,5 @@
 import { ClientBadRequest } from './../../../src/errors/clientBadRequest'
-import { TagType } from './../../../src/models/product'
+import { TagType } from './../../../src/models'
 import { validateProductTag } from './../../../src/helpers/validateProductTag'
 
 describe('Validate Product Tag tests', () => {

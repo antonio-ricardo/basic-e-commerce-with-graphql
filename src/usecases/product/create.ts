@@ -7,20 +7,24 @@ import ProductDb from '../../mongoose/products'
 @injectable()
 export class CreateProductUseCase implements ProductContracts.CreateProduct {
   async execute (
-    infos: ProductModel.Product
-  ): Promise<ProductModel.ProductWithId> {
-    validateProductTag(infos.tag)
+    input: ProductModel.Product
+  ): Promise<ProductModel.ProductCreated> {
+    validateProductTag(input.tag)
 
-    const productAlreadyExists: ProductModel.ProductWithId[] =
-      await ProductDb.find({ name: infos.name })
+    const productAlreadyExists: ProductModel.ProductCreated[] =
+      await ProductDb.find({ name: input.name })
 
     if (productAlreadyExists && productAlreadyExists.length > 0) {
       throw new ClientBadRequest('Already exists a product with sent name')
     }
 
-    const product: Promise<ProductModel.ProductWithId> = await ProductDb.create(
-      { ...infos, createdAt: new Date(), updatedAt: new Date() }
-    )
+    const product: Promise<ProductModel.ProductCreated> =
+      await ProductDb.create({
+        ...input,
+        value: Number(input.value.toFixed(2)),
+        createdAt: new Date(),
+        updatedAt: new Date()
+      })
 
     return product
   }

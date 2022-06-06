@@ -1,4 +1,4 @@
-import { TagType } from './../models/product'
+import { TagType } from './../models'
 import { ClientBadRequest } from '../errors'
 
 export const validateProductTag = (tag: string) => {

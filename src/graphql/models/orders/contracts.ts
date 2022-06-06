@@ -1,8 +1,8 @@
-import { Field, ObjectType } from 'type-graphql'
+import { Field, InputType } from 'type-graphql'
 import { TagType } from '../../../models'
 
-@ObjectType()
-export class ProductCreated {
+@InputType()
+export class ProductForOrderInput {
   @Field()
     id: string
 
@@ -20,10 +20,7 @@ export class ProductCreated {
 
   @Field()
     updatedAt: Date
-}
 
-@ObjectType()
-export class ProductForOrderModel extends ProductCreated {
   @Field()
     quantity: number
 }

@@ -1,4 +1,4 @@
-import { ArgsType, Field, ObjectType } from 'type-graphql'
+import { ArgsType, Field, InputType, ObjectType } from 'type-graphql'
 import { TagType } from '../../../models'
 
 @ArgsType()
@@ -13,7 +13,7 @@ export class InputCreateProduct {
     value: number
 }
 
-@ArgsType()
+@InputType()
 export class InputUpdateProduct {
   @Field()
     id: string

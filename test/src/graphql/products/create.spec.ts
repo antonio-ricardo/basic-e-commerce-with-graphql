@@ -1,4 +1,4 @@
-import { TagType } from './../../../../src/models/product'
+import { TagType } from './../../../../src/models'
 import { createProductUsecaseStub } from '../../../stubs'
 import { CreateProductResolver } from './../../../../src/graphql/resolvers'
 

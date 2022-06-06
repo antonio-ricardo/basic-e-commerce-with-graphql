@@ -2,13 +2,13 @@ import { inject, injectable } from 'inversify'
 import { Arg, Mutation, Resolver } from 'type-graphql'
 import { usecasesSymbols } from '../../../app/symbols/usecases'
 import { ProductContracts } from '../../../models'
-import { OutputDeleteProduct } from '../../models/products/contracts'
+import { OutputDeleteProduct } from '../../models'
 
 @injectable()
 @Resolver()
 export class DeleteProductResolver {
   constructor (
-    @inject(usecasesSymbols.deleteProduct)
+    @inject(usecasesSymbols.product.deleteProduct)
     private readonly deleteProductUsecase: ProductContracts.DeleteProduct
   ) {}
 
