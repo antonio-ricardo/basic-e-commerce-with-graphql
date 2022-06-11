@@ -34,7 +34,8 @@
   "scripts": {
     "dev": "nodemon --exec ts-node src/index.ts -e ts",
     "test:cov": "jest --coverage",
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "test2": "jest --passWithNoTests --runInBand"
   },
   "husky": {
     "hooks": {

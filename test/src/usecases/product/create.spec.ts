@@ -25,6 +25,7 @@ describe('Create product usecase tests', () => {
 
     mongod = connectionInfo.mongod
   })
+
   afterEach(async () => {
     await closeDatabase(mongoConnection, mongod)
   })
