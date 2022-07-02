@@ -6,6 +6,8 @@ export const usecasesSymbols = {
     deleteProduct: Symbol('DeleteProductUsecase')
   },
   order: {
-    createOrder: Symbol('CreateOrderUsecase')
+    createOrder: Symbol('CreateOrderUsecase'),
+    deleteOrder: Symbol('DeleteOrderUsecase'),
+    getOrder: Symbol('GetOrderUsecase')
   }
 }

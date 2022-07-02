@@ -1,4 +1,4 @@
-import { Field, InputType } from 'type-graphql'
+import { Field, InputType, ObjectType } from 'type-graphql'
 import { TagType } from '../../../models'
 
 @InputType()
@@ -23,4 +23,10 @@ export class ProductForOrderInput {
 
   @Field()
     quantity: number
+}
+
+@ObjectType()
+export class DeleteOrderOutput {
+  @Field()
+    hasDeleted: boolean
 }

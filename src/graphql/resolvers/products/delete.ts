@@ -13,7 +13,7 @@ export class DeleteProductResolver {
   ) {}
 
   @Mutation(() => OutputDeleteProduct)
-  async DeleteProduct (@Arg('id') id: string) {
+  async DeleteProduct (@Arg('productId') id: string) {
     return await this.deleteProductUsecase.execute({ id })
   }
 }

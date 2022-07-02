@@ -28,7 +28,21 @@ export namespace OrderContracts {
     }
   }
 
+  export namespace Outputs {
+    export interface DeleteOrder {
+      hasDeleted: boolean;
+    }
+  }
+
   export interface CreateOrder {
     execute(input: Inputs.CreateOrder): Promise<OrderModel.OrderWithId>;
+  }
+
+  export interface DeleteOrder {
+    execute(id: string): Promise<Outputs.DeleteOrder>;
+  }
+
+  export interface GetOrder {
+    execute(id: string): Promise<OrderModel.OrderWithId>;
   }
 }

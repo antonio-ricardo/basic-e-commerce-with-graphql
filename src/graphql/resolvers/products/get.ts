@@ -13,7 +13,7 @@ export class GetProductResolver {
   ) {}
 
   @Query(() => ProductCreated)
-  async GetProduct (@Arg('id') id: string) {
+  async GetProduct (@Arg('productId') id: string) {
     return await this.getProductUsecase.execute(id)
   }
 }
