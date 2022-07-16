@@ -10,7 +10,7 @@ import { GraphqlErrorHandler } from '../helpers/errorHandler'
 export const StartServer = async () => {
   const container = makeAll(new Container())
 
-  mongoose.connect(process.env.MONGO_DB_URL || 'mongodb://localhost')
+  mongoose.connect('mongodb://root:example@mongodb:27017/')
 
   const schema = await MakeSchema(container)
 
