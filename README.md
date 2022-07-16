@@ -14,3 +14,4 @@ e o que mais der na telha de aprender
 - eslint
 - prettier
 - mongodb-memory-server (gerar bancos em memoria independentes para usar em cada teste)
+- docker e docker-compose
