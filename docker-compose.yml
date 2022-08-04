@@ -20,9 +20,11 @@ services:
     restart: always
     tty: true
     container_name: mongodb
+    volumes:
+      - ./mongodata:/data
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_DB_URL_NAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_URL_PASSWORD}
     networks:
       - app-network
 
